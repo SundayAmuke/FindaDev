@@ -1,7 +1,8 @@
-package com.sundayamuke.findadev
+package com.sundayamuke.findadev.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sundayamuke.findadev.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
