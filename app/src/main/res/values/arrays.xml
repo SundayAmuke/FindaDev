@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="stack_options">
+    <string-array name="stack_options">
         <item>@string/backend_text</item>
         <item>@string/frontend_text</item>
         <item>@string/full_stack_text</item>
         <item>@string/mobile_text</item>
         <item>@string/ui_ux_text</item>
         <item>@string/dev_ops__text</item>
-    </array>
+    </string-array>
 
-    <array name="job_type_options">
+    <string-array name="job_type_options">
         <item>@string/all_text</item>
         <item>@string/full_time_text</item>
         <item>@string/remote_text</item>
         <item>@string/contract_text</item>
-    </array>
+    </string-array>
     
 </resources>
