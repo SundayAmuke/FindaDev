@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "809524861050",
+    "firebase_url": "https://findadev-80713.firebaseio.com",
+    "project_id": "findadev-80713",
+    "storage_bucket": "findadev-80713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809524861050:android:7d668511f8926f226083c3",
+        "android_client_info": {
+          "package_name": "com.sundayamuke.findadev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809524861050-6trnsfriqgn361qbmjo5er58l9k29bsk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sundayamuke.findadev",
+            "certificate_hash": "dfac1ea91c27ad73cd44f7808ca264140c64d31b"
+          }
+        },
+        {
+          "client_id": "809524861050-011ksos64l8ncul9rkq4q2piu0j00k7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAONYNL5v5mNJsKW773XBWYdVA-61kRz90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809524861050-011ksos64l8ncul9rkq4q2piu0j00k7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

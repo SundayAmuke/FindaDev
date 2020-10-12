@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">FindaDev</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_text">Create</string>
+    <string name="devs_text">Devs</string>
+
+    <string name="backend_text">Back End</string>
+    <string name="frontend_text">Front End</string>
+    <string name="full_stack_text">Full Stack</string>
+    <string name="mobile_text">Mobile</string>
+    <string name="ui_ux_text">UI/UX</string>
+    <string name="dev_ops__text">DevOps</string>
+
+    <string name="all_text">All</string>
+    <string name="full_time_text">Full time</string>
+    <string name="remote_text">Remote</string>
+    <string name="contract_text">Contract</string>
+    <string name="header_text">Want to get hired or connected? Fill your details</string>
+    <string name="full_name_text">Full name</string>
+    <string name="portfolio_link_text">Portfolio link</string>
+    <string name="technologies_used_text">Technologies used</string>
+    <string name="submit">SUBMIT</string>
 </resources>
