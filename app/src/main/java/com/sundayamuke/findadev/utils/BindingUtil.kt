@@ -1,14 +1,20 @@
 package com.sundayamuke.findadev.utils
 
-import android.view.View
-import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
-import com.sundayamuke.findadev.extensions.getSelectedPosition
+import androidx.recyclerview.widget.RecyclerView
+import com.sundayamuke.findadev.adapters.MainAdapter
 import com.sundayamuke.findadev.extensions.setSpinnerInverseBindingListener
+import com.sundayamuke.findadev.model.Dev
 
+@BindingAdapter("submitData")
+fun RecyclerView.bindData(data: List<Dev> ?) {
+    val adapter = adapter as MainAdapter
+
+    adapter.addHeaderAndSubmitList(data)
+}
 
 @BindingAdapter("selectedValue")
 fun Spinner.setValue(position: Int) {
