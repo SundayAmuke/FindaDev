@@ -19,4 +19,7 @@
     <string name="portfolio_link_text">Portfolio link</string>
     <string name="technologies_used_text">Technologies used</string>
     <string name="submit">SUBMIT</string>
+    <string name="check_profile_text">Check Profile</string>
+    <string name="developer_icon_text">Developer Icon</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
