@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.databinding.InverseBindingListener
-import com.sundayamuke.findadev.R
 
 
 fun Spinner.setSpinnerInverseBindingListener(listener: InverseBindingListener?) {
@@ -20,16 +19,4 @@ fun Spinner.setSpinnerInverseBindingListener(listener: InverseBindingListener?) 
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
-}
-
-fun Spinner.getSelectedPosition(
-    toFind: String
-): Int {
-    val arrayId = when (id) {
-        R.id.spinnerJobType -> R.array.job_type_options
-        R.id.spinnerStack -> R.array.stack_options
-        else -> throw Exception("Unknown ID $id")
-    }
-
-    return context.resources.getStringArray(arrayId).indexOf(toFind)
 }
