@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sundayamuke.findadev.viewmodel.MainViewModel" />
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_light"
     tools:context=".ui.MainFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,5 +19,8 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="10"
-        tools:listitem="@layout/item_dev" />
-</FrameLayout>
+        tools:listitem="@layout/item_dev"
+        submitData="@{viewModel.devs}"/>
+</LinearLayout>
+
+</layout>
