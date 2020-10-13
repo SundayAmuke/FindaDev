@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.sundayamuke.findadev.R
 import com.sundayamuke.findadev.adapters.ItemClickListener
 import com.sundayamuke.findadev.adapters.MainAdapter
@@ -40,10 +41,14 @@ class MainFragment : Fragment() {
     }
 
     private val clickListener = ItemClickListener(
-        profileClickListener = {dev: Dev ->
-            Toast.makeText(context, dev.fullName, Toast.LENGTH_SHORT).show()
+        profileClickListener = {user: Dev ->
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToProfileFragment(user)
+            )
         }, devClickListener = {dev: Dev ->
-            Toast.makeText(context, dev.fullName, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToDevFragment(dev)
+            )
         }
     )
 }

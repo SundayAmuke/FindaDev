@@ -7,5 +7,31 @@
 
     <fragment android:id="@+id/mainFragment"
         android:name="com.sundayamuke.findadev.ui.MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_devFragment"
+            app:destination="@id/devFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sundayamuke.findadev.ui.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="user"
+            app:argType="com.sundayamuke.findadev.model.Dev" />
+    </fragment>
+    <fragment
+        android:id="@+id/devFragment"
+        android:name="com.sundayamuke.findadev.ui.DevFragment"
+        android:label="fragment_dev"
+        tools:layout="@layout/fragment_dev" >
+        <argument
+            android:name="dev"
+            app:argType="com.sundayamuke.findadev.model.Dev" />
+    </fragment>
 </navigation>
