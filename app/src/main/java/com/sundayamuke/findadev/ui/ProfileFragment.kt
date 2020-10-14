@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.sundayamuke.findadev.R
 import com.sundayamuke.findadev.databinding.FragmentProfileBinding
@@ -25,18 +28,18 @@ class ProfileFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
-            hide()
-            setDisplayShowHomeEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
 
-        binding.dev = args.user
+        binding.fab.setOnClickListener (
+            Navigation.createNavigateOnClickListener(
+                ProfileFragmentDirections.actionProfileFragmentToEditFragment(args.user)
+            )
+        )
+
+        binding.user = args.user
 
         return binding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
     }
 }

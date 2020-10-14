@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="dev"
+            name="user"
             type="com.sundayamuke.findadev.model.Dev" />
     </data>
 
@@ -16,7 +16,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/my_appbar_container"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="180dp"
             android:background="@color/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -25,14 +25,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:contentScrim="@color/colorPrimary"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbar.TextColor"
                 app:expandedTitleGravity="bottom|center_horizontal"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:title="@{dev.fullName}">
+                app:title="@{user.fullName}">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="130dp"
-                    android:layout_height="100dp"
+                    android:layout_width="167dp"
+                    android:layout_height="141dp"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/developer_icon_text"
                     app:layout_collapseMode="none"
@@ -41,6 +42,7 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
+                    app:navigationIcon="?attr/homeAsUpIndicator"
                     android:layout_height="?attr/actionBarSize"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:layout_collapseMode="pin"
@@ -50,7 +52,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
-                    android:text="@{@string/profile_format(@stringArray/stack_options[dev.stack], @stringArray/job_type_options[dev.jobType])}"
+                    android:layout_marginBottom="8dp"
+                    stack="@{user.stack}"
+                    jobType="@{user.jobType}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_collapseMode="parallax"
                     android:textColor="@android:color/white"
@@ -95,13 +99,13 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1px"
-                            android:background="@android:color/black" />
+                            android:background="@color/colorGrey" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="@{dev.portfolioLink}"
+                            contentText="@{user.portfolioLink}"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             tools:text="https://github.com/SundayAmuke" />
 
@@ -133,7 +137,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1px"
-                            android:background="@android:color/black" />
+                            android:background="@color/colorGrey" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -141,7 +145,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:padding="4dp"
-                            android:text="@{dev.technologies}"
+                            contentText="@{user.technologies}"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             tools:text="Android, Kotlin, Java, GitHub..." />
 
@@ -152,6 +156,7 @@
         </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:backgroundTint="@color/fabColor"
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

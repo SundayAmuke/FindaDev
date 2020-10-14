@@ -5,9 +5,11 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Dev(
-    var fullName: String = "Amuke Sunday",
-    var portfolioLink: String = "https://github.com/SundayAmuke",
-    var stack: Int = 1,
-    var jobType: Int = 1,
-    var technologies: String = "Android, Java, Kotlin..."
+    var fullName: String = "",
+    var email: String = "",
+    var photoUrl: String = "",
+    var portfolioLink: String = "",
+    var stack: Int = -1,
+    var jobType: Int = -1,
+    var technologies: String = ""
 ) : Parcelable

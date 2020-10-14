@@ -42,7 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@{@stringArray/stack_options[dev.stack]}"
+            index="@{dev.stack}"
+            array="@{@stringArray/stack_options}"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -60,9 +61,12 @@
 
         <Button
             android:id="@+id/button"
+            style="@style/Profile.Button.Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{() -> clickListener.profileClick(dev)}"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:text="@string/check_profile_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />

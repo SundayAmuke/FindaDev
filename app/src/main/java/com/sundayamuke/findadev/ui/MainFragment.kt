@@ -5,16 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.sundayamuke.findadev.R
 import com.sundayamuke.findadev.adapters.ItemClickListener
 import com.sundayamuke.findadev.adapters.MainAdapter
 import com.sundayamuke.findadev.databinding.FragmentMainBinding
 import com.sundayamuke.findadev.model.Dev
 import com.sundayamuke.findadev.viewmodel.MainViewModel
+import com.sundayamuke.findadev.viewmodel.RC_SIGN_IN
 
 class MainFragment : Fragment() {
 
@@ -31,13 +35,34 @@ class MainFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
 
-        binding.viewModel = viewModel
-
-        binding.recyclerView.adapter = MainAdapter(user = Dev(), clickListener)
-
         binding.lifecycleOwner = this
 
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
+        binding.recyclerView.adapter = MainAdapter(viewModel.user.value!!, clickListener)
+
+        viewModel.authListener = FirebaseAuth.AuthStateListener { auth ->
+            val user = auth.currentUser
+            if (user == null) {
+                // Not signed in
+                startActivityForResult(
+                    AuthUI.getInstance()
+                        .createSignInIntentBuilder()
+                        .setIsSmartLockEnabled(false)
+                        .setAvailableProviders(viewModel.providers)
+                        .build(),
+                    RC_SIGN_IN)
+            } else {
+                onSignedInSetup(user)
+            }
+        }
+
         return binding.root
+    }
+
+    private fun onSignedInSetup(user: FirebaseUser) {
+        viewModel.setupSignIn(user)
+        binding.viewModel = viewModel
     }
 
     private val clickListener = ItemClickListener(
@@ -51,4 +76,18 @@ class MainFragment : Fragment() {
             )
         }
     )
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.addAuthListener()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.removeAuthListener()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }

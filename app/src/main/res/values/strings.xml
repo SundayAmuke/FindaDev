@@ -24,4 +24,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="profile_format">%s, %s Dev</string>
+    <string name="no_name_text">(No name)</string>
+    <string name="info_needed_text"><i>Info needed</i></string>
 </resources>

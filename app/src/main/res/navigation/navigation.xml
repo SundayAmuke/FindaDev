@@ -57,5 +57,10 @@
         <argument
             android:name="user"
             app:argType="com.sundayamuke.findadev.model.Dev" />
+        <action
+            android:id="@+id/action_editFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

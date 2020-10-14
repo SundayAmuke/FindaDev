@@ -89,7 +89,7 @@ class MainAdapter(
 
     companion object DiffCallback: DiffUtil.ItemCallback<DataItem>() {
         override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.email == newItem.email
         }
 
         override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
@@ -140,12 +140,12 @@ class MainAdapter(
  * */
 sealed class DataItem {
     data class DevReportItem(val dev: Dev): DataItem() {
-        override val name: String = dev.fullName
+        override val email: String = dev.email
     }
 
     object User: DataItem() {
-        override val name: String = ""
+        override val email: String = ""
     }
 
-    abstract val name: String
+    abstract val email: String
 }
