@@ -10,10 +10,18 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_mainFragment_to_devFragment"
-            app:destination="@id/devFragment" />
+            app:destination="@id/devFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -24,6 +32,13 @@
         <argument
             android:name="user"
             app:argType="com.sundayamuke.findadev.model.Dev" />
+        <action
+            android:id="@+id/action_profileFragment_to_editFragment"
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/devFragment"
@@ -32,6 +47,15 @@
         tools:layout="@layout/fragment_dev" >
         <argument
             android:name="dev"
+            app:argType="com.sundayamuke.findadev.model.Dev" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.sundayamuke.findadev.ui.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" >
+        <argument
+            android:name="user"
             app:argType="com.sundayamuke.findadev.model.Dev" />
     </fragment>
 </navigation>
